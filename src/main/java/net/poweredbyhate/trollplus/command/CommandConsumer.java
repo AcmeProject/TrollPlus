@@ -2,6 +2,7 @@ package net.poweredbyhate.trollplus.command;
 
 import net.poweredbyhate.trollplus.TrollPlus;
 import net.poweredbyhate.trollplus.player.TrollPlayer;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,8 +21,9 @@ public abstract class CommandConsumer implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
             // Commands can only be executed by Players because fuck the console
-            sender.sendMessage(ChatColor.RED + "Are ye serious mate? Too stingy to log on to the bloody server are ya?");
-            sender.sendMessage(ChatColor.RED + "You can take your bloody console and piss right off mate.");
+            // Colours only shows up using ConsoleSender
+            Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Are ye serious mate? Too stingy to log on to the bloody server are ya?");
+            Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "You can take your bloody console and piss right off mate.");
             return false;
         }
         TrollPlayer player = plugin.getPlayerManager().getPlayer((Player) sender);

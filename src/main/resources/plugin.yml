@@ -1,5 +1,5 @@
 main: net.poweredbyhate.trollplus.TrollPlus
-author: LaxWasHere
+author: [LaxWasHere,insou]
 version: 0.1
 commands:
   burn:
@@ -7,3 +7,4 @@ commands:
   bolt:
   fakeop:
   jarcode:
+  fakerestart:

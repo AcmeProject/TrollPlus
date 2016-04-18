@@ -8,7 +8,7 @@ public class CommandManager extends Manager {
 
     private final CommandConsumer[] commandConsumers = new CommandConsumer[] {
             new BoltTrollCommand(plugin), new BurnTrollCommand(plugin), new FakeopTrollCommand(plugin),
-            new FreezeTrollCommand(plugin), new JarcodeTrollCommand(plugin)
+            new FreezeTrollCommand(plugin), new JarcodeTrollCommand(plugin), new FakeRestartCommand(plugin)
     };
 
     public CommandManager(TrollPlus plugin) {
