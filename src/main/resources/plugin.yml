@@ -1,0 +1,9 @@
+main: net.poweredbyhate.trollplus.TrollPlus
+author: LaxWasHere
+version: 0.1
+commands:
+  burn:
+  freeze:
+  bolt:
+  fakeop:
+  jarcode:
