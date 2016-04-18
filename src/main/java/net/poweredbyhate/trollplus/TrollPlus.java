@@ -1,51 +1,47 @@
 package net.poweredbyhate.trollplus;
 
-import net.poweredbyhate.trollplus.Trolls.CommandBolt;
-import net.poweredbyhate.trollplus.Trolls.CommandBurn;
-import net.poweredbyhate.trollplus.Trolls.CommandFakeop;
-import net.poweredbyhate.trollplus.Trolls.CommandFreeze;
-import net.poweredbyhate.trollplus.Trolls.CommandJarcode;
+import net.poweredbyhate.trollplus.listeners.PlayerListener;
+import net.poweredbyhate.trollplus.managers.CommandManager;
+import net.poweredbyhate.trollplus.managers.TrollPlayerManager;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * Created by Lax on 4/18/2016.
  */
-public class TrollPlus extends JavaPlugin implements Listener{
+public class TrollPlus extends JavaPlugin {
 
-    public void onEnable() {
-        Bukkit.getPluginManager().registerEvents(this, this);
-        enableCommands(); //List of commands to make: http://q.awsmpwrd.com/iVZx.png
-    }
-
-    public void enableCommands() {
-        getCommand("burn").setExecutor(new CommandBurn(this));
-        getCommand("freeze").setExecutor(new CommandFreeze(this));
-        getCommand("bolt").setExecutor(new CommandBolt(this));
-        //getCommand("special").setExecutor(new CommandSpecial(this)); I have yet to check what a fucking AK-47 is.
-        getCommand("fakeop").setExecutor(new CommandFakeop(this)); //not done
-        getCommand("jarcode").setExecutor(new CommandJarcode(this));
-    }
-
-    String[] ad = {
-           "&d____----====[ &cSponsored by GNU/Emacs&d ]====----____",
-            "&aGet emacs for your linux distro now!",
-            "&bhttps://www.gnu.org/software/emacs/",
-
-            "&aThis troll plugin is sponsored by Emacs!",
-            "&aEmacs is the one true editor that respects your software freedoms",
-            " "
+    private final Listener[] listeners = {
+            new PlayerListener(this)
     };
 
+    private TrollPlayerManager playerManager;
+    private CommandManager commandManager;
 
-    @EventHandler
-    public void onJoin(PlayerJoinEvent ev) {
-        for (String s : ad) {
-            ev.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', s));
+    @Override // You better annotate every bloody override or I will end you.
+    public void onEnable() {
+        loadManagers();
+        loadListeners();
+        //List of command to make: http://q.awsmpwrd.com/iVZx.png
+    }
+
+    private void loadManagers() {
+        playerManager = new TrollPlayerManager(this);
+        commandManager = new CommandManager(this);
+    }
+
+    private void loadListeners() {
+        for (Listener listener : listeners) {
+            Bukkit.getPluginManager().registerEvents(listener, this);
         }
+    }
+
+    public TrollPlayerManager getPlayerManager() {
+        return playerManager;
+    }
+
+    public CommandManager getCommandManager() {
+        return commandManager;
     }
 }
