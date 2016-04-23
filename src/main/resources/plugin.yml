@@ -8,3 +8,4 @@ commands:
   fakeop:
   jarcode:
   fakerestart:
+  switch:

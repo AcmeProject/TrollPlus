@@ -7,8 +7,13 @@ import net.poweredbyhate.trollplus.command.trolls.*;
 public class CommandManager extends Manager {
 
     private final CommandConsumer[] commandConsumers = new CommandConsumer[] {
-            new BoltTrollCommand(plugin), new BurnTrollCommand(plugin), new FakeopTrollCommand(plugin),
-            new FreezeTrollCommand(plugin), new JarcodeTrollCommand(plugin), new FakeRestartCommand(plugin)
+            new JarcodeTrollCommand(plugin),
+            new BoltTrollCommand(plugin),
+            new BurnTrollCommand(plugin),
+            new FakeopTrollCommand(plugin),
+            new FreezeTrollCommand(plugin),
+            new FakeRestartCommand(plugin),
+            new SwitchTrollCommand(plugin)
     };
 
     public CommandManager(TrollPlus plugin) {
@@ -25,6 +30,39 @@ public class CommandManager extends Manager {
     private void register(CommandConsumer commandConsumer) {
         plugin.getCommand(commandConsumer.getCommand()).setExecutor(commandConsumer);
     }
+
+    /*
+    /troll
+    /special
+    /fakeop
+    /fakedeop
+    /launch
+    /spam
+    /trollkick
+    /badapple
+    /boom
+    /push
+    /gokill
+    /trap
+    /switch
+    /denymove
+    /potatotroll
+    /tptroll
+    /infect
+    /herobrine
+    /turn
+    /hurt
+    /starve
+    /void
+
+    #Done
+    /burn
+    /freeze
+    /bolt
+    /fakerestart
+    */
+
+
 
 
 }
