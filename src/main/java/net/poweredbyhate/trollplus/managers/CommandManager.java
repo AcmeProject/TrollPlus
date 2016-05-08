@@ -31,38 +31,4 @@ public class CommandManager extends Manager {
         plugin.getCommand(commandConsumer.getCommand()).setExecutor(commandConsumer);
     }
 
-    /*
-    /troll
-    /special
-    /fakeop
-    /fakedeop
-    /launch
-    /spam
-    /trollkick
-    /badapple
-    /boom
-    /push
-    /gokill
-    /trap
-    /switch
-    /denymove
-    /potatotroll
-    /tptroll
-    /infect
-    /herobrine
-    /turn
-    /hurt
-    /starve
-    /void
-
-    #Done
-    /burn
-    /freeze
-    /bolt
-    /fakerestart
-    */
-
-
-
-
 }
